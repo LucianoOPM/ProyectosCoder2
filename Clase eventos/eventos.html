@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/eventos.css">
+    <title>Eventos</title>
+    
+    <script>
+        /*console.log(document.querySelectorAll("li")) Como el script se cargó antes que la página, los scripts no leyeron la lista de elementos que se tiene abajo en el
+        HTML, para casos así se utiliza el DOMContentLoaded, igual es muuuuy raro, escribir JS en la parte de <head></head>*/
+        console.log(1)
+        document.addEventListener("DOMContentLoaded",()=>{console.log(2)})
+        console.log(3)
+        /*DOMContentLoaded, se asegura que el script sea leído al final, igual es muy raro de utilizarse*/
+    </script>
+
+</head>
+<body>
+    <label onclick="">Buscar:</label> <!-- Para agregar eventos, también podemos hacerlo directamente en el HTML, agregamos un atributo con el nombre del evento
+    Y entre las comillas, ponemos la funcion a llamar en el evento. -->
+    <input type="text">
+    <button id="button">Buscar</button>
+    <button>Cambiar</button>
+    
+
+    <ul>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+    </ul>
+
+    <center>
+        <p>estos son los eventos más comunes:</p>
+    </center>
+    <img src="assets/WhatsApp Image 2022-10-07 at 4.32.59 PM.jpeg">
+
+
+    <form action="http://google.com"> <!--Evento predeterminado-->
+        <input type="text">
+        <button id="btn">Enviar</button>
+    </form>
+
+    
+    <script>
+        const form = document.querySelector("form")
+        form.addEventListener("submit", (evt)=>{       /*Las acciones predeterminadas se ejecutan siempre al instante, si uno no quiere que la acción predeterminada se ejecute
+            y viene de "regalo" un evento predeterminado, en este caso es representado con el parametro "evt", para poder cancelar esa acction predeterminada,
+            se puede usar la función "preventDefault()".
+            Todas las etiquetas y el submit de formulario siempre tendrán etiquetas predeterminadas.*/
+            evt.preventDefault()
+            console.log(evt.target[0].value)//Para acceder al valor de un formulario, se pone la connotación ".value"
+            console.log(`Enviamos el formulario`)
+        })
+
+    </script>
+    
+
+
+
+
+
+
+
+
+    <!-- <img id="imagen" onmouseover="cambiarImagen()" onmouseleave="regresarImagen()" src="https://thumbs.gfycat.com/DampSpanishCleanerwrasse-size_restricted.gif" alt="Blastoise" width="150">
+ -->
+
+
+
+
+    <!--<script src="javascript/eventos.js"></script>-->
+</body>
+</html>

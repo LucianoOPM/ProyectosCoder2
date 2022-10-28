@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/style.css" />
+    <title>Storage and JSON</title>
+  </head>
+  <body>
+    <div>
+      <h1>Local Storage y Session Storage</h1>
+      <pre style="font-family: arial">
+                El objeto <strong> Storage (API de almacenamiento web)</strong> permite almacenar datos de manera local en el navegador sin necesidad de realizar ninguna conexión con el servidor.
+                De esta manera, cada cliente puede preservar información de la aplicación.
+                El navegador nos ofrece dos tipos de storage: localStorage y sessionStorage.
+
+                Window es un objeto global, por eso al momento de hacer un <strong>'window.alert()' o 'window.localStorage'</strong>, se puede acceder directamente con 'alert' o con 'localStorage', 
+                porque es un objeto global que hace referencia a toda la ventana del navegador"
+
+                Los datos guardados en localStorage se guardan en <strong>aplicaciones>localStorage y sessionStorage</strong>, respectivamente. Tienen un limite de almacenamiento, 
+                depende de cada navegador.
+
+            <h2>localStorage: setItem</h2>
+
+                Los datos almacenados en localStorage (variable global preexistente) se almacenan en el navegador de forma indefinida (o hasta que se borren los datos de navegación del browser): 
+                La información persiste reinicio de navegador y hasta del sistema operativo, cada localStorage es individual dependiendo del dominio de cada servidor.
+
+                El storage, es unicamente del navegador, usa el IP del dominio como identificador de cada almacenamiento individual o sea, que Chrome, OperaGX, Firefox, Edge, no comparten está 
+                información.
+                La información guardada acá, <strong>está accesible para todo el mundo</strong>
+
+                <img src="assests/Opera Captura de pantalla_2022-10-13_161337_docs.google.com.png" width="600">
+
+
+                
+                Dado que localStorage y sessionStorage son objetos globales, <strong>es posible crear y acceder a las claves como si fueran propiedades.</strong> 
+                Pero esto no es recomendable, porque hay eventos asociados a la modificación del storage cuando se emplea getItem o setItem.
+                <img src="assests/Opera Captura de pantalla_2022-10-13_191059_docs.google.com.png" width="600">                
+            
+            
+            <h2>localStorage: getItem</h2>
+
+                Para recuperar los datos almacenados en localStorage se puede usar el método, getItem. el cual <strong>siempre devuelve un string como valor.</strong>
+                ante estos casos si quieremos un valor boolean o un valor number, se puede usar la funcion <strong>Number()</strong> o la funcion <strong>boolean().</strong>
+                
+                ejemplo numero:
+                let x=Number(localStorage.getItem("edad")) y regresa un valor de numero.
+                ejemplo boolean:
+                let x=Boolean(localStorage.getItem("soltero")) y regresa un valor booleano.
+                
+                localStorage por si solo <strong>NO GUARDA VALORES COMPLEJOS COMO OBJETOS</strong>, se necesita de una ayuda para que localStorage guarde valores complejos, o si no los guarda 
+                como "[object Object]"
+                <img src="assests/Opera Captura de pantalla_2022-10-13_170144_docs.google.com.png" width="600">
+
+
+            <h2>sessionStorage</h2>
+                
+                sessionStorage <strong>no</strong> aguanta reinicios de el explorador, si reinicias el navegador, la información guardada en sessionStorage será borrada, la forma de guardar info
+                es similar a localStorage, con <strong>setItem</strong>
+                <img src="assests/Opera Captura de pantalla_2022-10-13_171829_docs.google.com.png" width="600">
+
+            <h2>Recorriendo el sessionStorage</h2>
+                
+                No podemos usar for...of porque no son objetos iterables, ni for...in porque obtenemos otras propiedades del objeto que no son valores almacenados
+                usamos el bucle <strong>"for"</strong> con el método <strong>"key"</strong> para hacer una iteracion de todos los valores en localStorage o sessionStorage
+                <img src="assests/Opera Captura de pantalla_2022-10-13_181611_docs.google.com.png" width="600">
+
+            <h2>removeItem & Clear</h2>
+                Para remover un item almacenado, se usa el método <strong>"removeItem()".</strong>Y dentro escribimos el nombre del dato almacenado que queremos eliminar.
+                
+                El método <strong>"Clear"</strong> elimina <strong>"TODOS"</strong> los elementos almacenados
+                <img src="assests/Opera Captura de pantalla_2022-10-13_182528_docs.google.com.png" width="600">
+
+                Si queremos almacenar la información de un <strong>objeto en un storage</strong>, hay que tener en cuenta que tanto la clave como el valor se almacenan en strings.
+                <img src="assests/Opera Captura de pantalla_2022-10-13_185519_docs.google.com.png" width="600">
+            </pre>
+    </div>
+    <div>
+      <h1>JSON</h1>
+      <pre style="font-family: arial">
+                JavaScript Object Notation (JSON) es un formato basado en texto plano, para representar datos estructurados con la sintaxis de objetos de JavaScript. 
+                <strong>Es comúnmente utilizado para enviar y almacenar datos en aplicaciones web.</strong> Es independiente de JS. Eso significa que python, java, .NET, nodeJS, y practicamente
+                cualquier lenguaje puede usar JSON como transporte de datos.
+
+                Cuando sea necesario enviar un objeto Javascript al servidor o almacenarlo en storage, será necesario convertirlo a un JSON (una cadena) antes de ser enviado.
+
+                Una forma de diferenciar un objeto de JS a un formato JSON es que las keys de el formato JSON suelen estar entre comillas.
+                <img src="assests/Opera Captura de pantalla_2022-10-13_194031_docs.google.com.png" width="600">
+
+            <h2>stringify</h2>
+                es un <strong>MÉTODO</strong> de JSON que sirve para almacenar objetos en localStorage y sessionStorage, pero no los guarda como objetos, los guarda como cadena de cáracteres.
+                <img src="assests/Opera Captura de pantalla_2022-10-13_195821_docs.google.com.png" width="600">
+            <h2>parse</h2>
+                El parse transforma la cadena de caracteres del stringify en un objeto usable en JS.
+                <img src="assests/Opera Captura de pantalla_2022-10-13_195918_docs.google.com.png" width="600">
+
+            </pre>
+    </div>
+
+    <script src="javascript/app.js"></script>
+    <script src="data/data.js"></script>
+  </body>
+</html>

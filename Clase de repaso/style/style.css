@@ -1,0 +1,26 @@
+.red{
+    background-color: red;
+    color: black;
+}
+
+.blue{
+    background-color: blue;
+    color: white;
+}
+.center{
+    text-align: center;
+}
+
+.green{
+    background-color: green;
+}
+.filtro{
+    filter: grayscale();
+}
+
+.mostrar{
+    display: block;
+}
+.ocultar{
+    display: none;
+}
