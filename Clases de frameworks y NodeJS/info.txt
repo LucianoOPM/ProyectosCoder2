@@ -1,0 +1,8 @@
+/*
+FS: File system
+http: el modulo para trabajar con servidores
+https: Igual que el anterior, pero va por un canal seguro
+Events: Modulo básico para trabajar con el event loop
+QueryStrings: parsea una cadena de caracteres en un canal seguro
+Path: Manipula a las rutas de los sistemas de archivos local.
+*/
